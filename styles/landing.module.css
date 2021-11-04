@@ -1,0 +1,81 @@
+
+.authfence{
+    max-width:450px;
+    min-height:500px;
+    margin-left:50px;
+    margin-top:100px;
+    color:white;
+}
+
+.container {
+    background-color: #454797;
+    max-width: 1366px;
+    height: 568px;
+    border-bottom-right-radius:10px;
+    border-bottom-left-radius:10px;
+    margin:0px;
+    padding:0px;
+}
+.front_page_photo {
+    position:relative;
+    bottom: 600px;
+    left: 630px;
+    height: 580px;
+    width: 530px;
+    z-index:5;
+}
+
+.front_page_photo2{
+    position: relative;
+    bottom:1050px;
+    left:1100px;
+    height:302px;
+    width:250px;
+    z-index:6;
+}
+
+.getInTouchStepscolor{
+    color:#454797;
+}
+
+.getInTouchStepsSpace{
+margin-top:50px;
+margin-left:50px;
+margin-right:50px;
+}
+
+.textcss{
+    text-align:left;
+    line-height:2;
+    font-size:20px;
+}
+.topfloat{
+    padding-top:10px;
+    padding-left:70px;
+    display:flex;
+}
+.toptextcss{
+    font-size:50px;
+    color:#454797;
+    padding-top: 50px;    
+}
+.whatwedostyle{
+    width:700px;
+    height:300px;
+    text-align: center;
+    line-height: 2;
+    
+}
+.newwhatstyle{
+    margin-left: 25em;
+}
+
+.formadjustment{
+    width:600px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/* .formadjustment Form.Input.label {
+   color:#454797; */
+/* } */

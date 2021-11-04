@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="70.711" height="66.77" viewBox="0 0 70.711 66.77">
+  <g id="arrows" transform="translate(-233.144 -459.61)">
+    <g id="arrow" transform="translate(-244.523 298.019) rotate(-45)">
+      <line id="Line_6" data-name="Line 6" y2="50" transform="translate(223.5 453.024)" fill="none" stroke="#fff" stroke-width="2"/>
+      <line id="Line_7" data-name="Line 7" x1="50" transform="translate(222.5 502.024)" fill="none" stroke="#fff" stroke-width="2"/>
+    </g>
+    <g id="arrow-2" data-name="arrow" transform="translate(-244.523 328.019) rotate(-45)" opacity="0.25">
+      <line id="Line_6-2" data-name="Line 6" y2="50" transform="translate(223.5 453.024)" fill="none" stroke="#fff" stroke-width="2"/>
+      <line id="Line_7-2" data-name="Line 7" x1="50" transform="translate(222.5 502.024)" fill="none" stroke="#fff" stroke-width="2"/>
+    </g>
+  </g>
+</svg>
