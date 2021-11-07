@@ -5,23 +5,23 @@ import Link from 'next/link';
 import 'semantic-ui-css/semantic.min.css';
 
 function Getintouchsteps(){
-    return <Fragment >
+    return <div >
 <Header as='h2' icon textAlign='center' style={{
-    marginTop:"200px"
+    marginTop:"50px"
 }}>
-    <Header.Content as ='h1' className={styles.toptextcss}>Get started verifying</Header.Content>
+    <Header.Content as ='h2' className={styles.toptextcss}>Get started verifying</Header.Content>
     
-    <List horizontal verticalAlign='middle' className={styles.getInTouchStepscolor}>
+    <List horizontal relaxed className={styles.getInTouchStepscolor}>
         <List.Item>
             <List.Content className={styles.getInTouchStepsSpace}>
                 <List.Icon name="chain" />      
-                <List.Header as='h2' styles={{paddingTop:'50px'}}>Fill in our quick form</List.Header>
+                <List.Header as='h2'>Fill in our quick form</List.Header>
             </List.Content>
         </List.Item>
         <List.Item>
               <List.Content className={styles.getInTouchStepsSpace}>
               <List.Icon name="blogger" />      
-                <List.Header as='h2'>Login to AuthFence</List.Header>
+              <List.Header as='h2'>Login to AuthFence</List.Header>
               </List.Content>
         </List.Item>
         <List.Item>
@@ -31,12 +31,16 @@ function Getintouchsteps(){
               </List.Content>
         </List.Item>
   </List>
+  <List> 
+        <List.Item>
+            <List.Content>
+                <Link href ='/' >  
+                    <Button content="Get in touch" color='red'/>
+                </Link>
+            </List.Content>
+        </List.Item>
+</List>
   </Header>
-
-  <Link href ='/' >  
-        <Button content="Get in touch" color='red' style={{marginLeft:'570px'}}/>
-  </Link>
-
-    </Fragment>
+    </div>
 }
 export default Getintouchsteps;

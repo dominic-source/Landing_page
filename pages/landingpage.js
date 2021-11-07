@@ -1,4 +1,4 @@
-import {React, useState, Fragment} from 'react';
+import {React,Fragment} from 'react';
 import Myfooter from '../component/MyFooter';
 import Getintouch from '../component/GetInTouch';
 import Getintouchsteps from '../component/GetInTouchSteps';
@@ -10,7 +10,7 @@ import Whatwedo from '../component/WhatWeDo';
 
 function landingPage(){
 
-    return     <Fragment>
+    return  <Fragment> 
     <Myheader />
     <Getintouchsteps />
     <Whatwedo />

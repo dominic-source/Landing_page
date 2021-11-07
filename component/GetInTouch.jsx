@@ -1,23 +1,44 @@
-import {Fragment, React,useState} from 'react';
-import {Header,Button,Form, Message, Container} from 'semantic-ui-react';
+import {React,useState,useEffect} from 'react';
+import {Button,Form, Message, Container,Grid} from 'semantic-ui-react';
 import styles from  '../styles/landing.module.css';
 import 'semantic-ui-css/semantic.min.css';
 
 
 function Getintouch(){
+  function getwindowswidth (){
+    const {innerWidth:width} = window;
+    return width;
+}
 
-    return <Fragment><Container textAlign="center" >
-    <Header as='h2' className={styles.whatwedostyle} style={{marginLeft:'270px'}}>
-      <Header.Content as='h2' className={styles.toptextcss} > 
-        Get in touch
-      </Header.Content>
-      <Header.Content style={{lineHeight:'2'}}> 
-      Lorem ipsum dolor sit amet, consetetur sadipscing 
-    elitr, sed diam nonumy eirmod tempor invidunt ut
-    labore et dolore magna aliquyam erat, sed diam voluptua
-      </Header.Content>
-    </Header>
-    <Form warning size="small" className={styles.formadjustment}>
+let footerDisAppear;
+//To change the state of the component
+const [footer, setfooter] = useState(true);
+
+//To cause a custom effect on the change
+useEffect(() =>{
+      let sizeofwindow = getwindowswidth();
+      sizeofwindow <= 700 ?footerDisAppear= false:footerDisAppear = true;
+      setfooter(footerDisAppear);
+});
+
+    return <div><Container >
+    <Container fluid >
+    <Grid columns={1} textAlign='center'>
+                <Grid.Row columns={1} textAlign='center' style={{paddingBottom:'0px'}}>
+                  <h2 className={styles.toptextcss} > 
+                    What we do
+                  </h2>
+                  </Grid.Row>
+                  <Grid.Row columns={1} textAlign='center' style={{paddingTop:'0px'}}>
+                            <h2 style={{lineHeight:2,color:'black'}} className={styles.whatwedostyle}> 
+                                  Lorem ipsum dolor sit amet, consetetur sadipscing 
+                                elitr, sed diam nonumy eirmod tempor invidunt ut
+                                labore et dolore magna aliquyam erat, sed diam voluptua
+                            </h2>
+                  </Grid.Row>
+    </Grid>
+    </Container> 
+    <Form warning size="large" className={styles.formadjustment}>
     <Form.Input label='Email' placeholder='joe@schmoe.com'/>
     <Message
       warning
@@ -26,8 +47,8 @@ function Getintouch(){
         'That e-mail has been subscribed, but you have not yet clicked the verification link in your e-mail.',
       ]}
     />
-    <Button negative> Get in touch</Button>
+    <Button negative fluid={!footer}> Get in touch</Button>
   </Form>
-    </Container></Fragment>
+    </Container></div>
 }
 export default Getintouch;
