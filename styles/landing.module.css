@@ -1,20 +1,56 @@
+.animate1{
+    text-align:left;
+    line-height:2;
+    font-size:21px;
+    font-family: lato;
+    font-weight:regular;
+}
+
 .authfence{
-    max-width:450px;
-    min-height:500px;
+    max-width:536px;
+    max-height:639px;
     margin-left:50px;
     margin-top:100px;
     color:white;
-    font-family:ubuntu;
+}
+.auth{
+    color:white !important;
+    text-align:left !important;
+    font-family:lato !important;
+    font-weight:heavy !important;
+    font-size:70px !important;
+}
+.authhead{
+    display:inline-flex;
+    font-size:12px;
+    min-width:114px;
+    min-height: 28px;
+    padding-left:10px;
+    color:white;
+    font-family: lato;
+    font-weight: regular;
+    
 }
 
+.authhead:hover, .authhead:active{
+    cursor:pointer;
+}
 .cardhead{
     font-family:lato;
-    font-weight:200px;
+    font-weight:bold !important;
+    font-size:35px !important;
+    color:black !important;
+}
+.cardhead2{
+    font-family: lato;
+    font-weight: regular !important;
+    font-size:21px !important;
+    color:black !important;
 }
 .container {
     background-color: #454797;
-    max-width: 1366px;
-    max-height:1000px;
+    max-width: 1860px;
+    max-height:750px;
     border-bottom-right-radius:10px;
     border-bottom-left-radius:10px;
     margin:0px;
@@ -30,24 +66,45 @@
 }
 
 .footcontainer {
-    background-color:#454797;
+    background-image:linear-gradient(to right,rgb(69,74,153), rgb(72,114,184));
     border-radius:10px;
     box-shadow:0.5px 1px 3px;
     padding:10px 10px;
     margin-top:30px;
 }
 
-
-
 .getInTouchStepscolor{
     color:#454797;
 }
 
 .getInTouchStepsSpace{
-margin-top:20px;
+    font-family:lato;
+    font-size:24px;
+    font-weight:regular;
+    color:#252525;
+    text-align: left;
+    margin-left:15px;
+}
+.getInTouchStepsAdditional{
+    padding-bottom:50px !important;
+    font-family:lato;
+    font-size:24px;
+    font-weight:regular;
+    color:#252525;
+    text-align: left;
+    margin-left:15px;
 }
 
 .gridcolor{
+    color:white;
+    font-family:lato;
+    font-size:21px;
+    font-weight: regular;
+}
+.gridcolor2{
+    font-family: lato !important; 
+    font-size:26px !important;
+    font-weight: bold !important;
     color:white;
 }
 .gridcolor:hover,.gridcolor:active{
@@ -56,12 +113,38 @@ margin-top:20px;
     cursor:pointer;
 }
 
+.hoverbutton{
+    background-color:#F64C72 !important;
+    color:white !important; 
+    margin-left:20px;
+    max-width:175px;
+    max-height:70px;
+}
+
+.hoverbutton:hover{
+    color:#fdf5f5 !important; 
+    background-color:#f81446 !important; 
+}
+
 .icondesign:hover,.icondesign:active{
     font-size:1.2em;
     transition: 3s font-size ease-in-out ;
 }
+
+.number{
+    color:#000000;
+    font-size: 21px;
+    font-family: lato;
+    font-weight: light;
+    margin-left:160px;
+    
+}
+
 .socialspace{
-    margin-Right:30px;
+    margin-left: auto;
+    margin-right:auto;
+    display:inline-flex;
+    padding-right:30px;
    }
 .textcss{
     text-align:left;
@@ -75,85 +158,129 @@ margin-top:20px;
     display:flex;
 }
 .toptextcss{
-    font-size:35px;
+    font-size:70px;
     color:#454797;
     padding-top: 10px;  
-    font-family:ubuntu sans-serif;
-    font-weight: 500px;
+    font-family:lato;
+    font-weight: heavy;
 }
 .whatwedostyle{
     width:700px;
     text-align: center;
     line-height: 2;  
     font-family:lato;
-    font-size:20px;
-    
+    font-size:21px;
+    font-weight: regular;
 }
+
 .newwhatstyle{
     margin-left: 25em;
 }
 
-.animate1{
-    animation-name:slidein;
-    animation-duration:7s;
-    animation-iteration-count: 1;
-    animation-direction:alternate-reverse;
-    text-align:left;
-    line-height:2;
-    font-size:20px;
-}
-@keyframes slidein {
-    from {
-      width: 200%;
-    }
-  
-    to {
-      width: 100%;
-    }
-  }
-
-@media (min-width:1000px) {
+@media (min-width:901px) {
     .front_page_photo2{
         position: relative;
-        bottom:1050px;
-        left:1100px;
-        height:302px;
-        width:250px;
+        bottom:1150px;
+        left:1040px;
+        height:408px;
+        width:314px;
         z-index:6;
-        opacity: 0.7;
     } 
     .front_page_photo {
         position:relative;
-        bottom: 45rem;
-        left: 45rem;
-        height: 580px;
-        width: 530px;
+        bottom: 576px;
+        left: 554px;
+        height: 754px;
+        width: 549px;
         z-index:5;
-        opacity: 0.5;
-        
     }
 }
 
 @media (max-width:900px){
-.front_page_photo{
-    height: 380px;
-    width: 330px;
-    opacity: 1;
+.authfence{
+    margin-left:10px;
+    margin-top:20px; 
+}
+.auth{
+    font-size:61px !important;
+    text-align: center !important;
 }
 .container{
-    max-height: 900px;
+    max-height: 930px;
     }
-.front_page_photo2{
-        visibility: hidden;
-    }
-    .footcontainer {
+.footcontainer {
         padding:5px 5px;
         margin-top:5px;
     }
-    .authfence{
-        margin-left:10px;
-        margin-top:20px;
-        
-    }
-
+.front_page_photo{
+    height: 380px;
+    width: 330px;
 }
+
+.front_page_photo2{
+        visibility: hidden;
+    }
+    .socialspace{
+        height:158px;
+        width:158px;
+       }
+       .socialspace1{
+        height:158px;
+        width:158px;
+       }
+}
+
+
+/* Slide show */
+
+.slideshow_container{
+ max-width:1000px;
+ position:relative;
+ margin:auto;   
+}
+
+.prev, .next{
+    position:absolute;
+    top:50%;
+    width:auto;
+    margin-top: -22px;
+    padding:16px;
+    transition:0.6s ease;
+    user-select: none;
+    opacity:0.5;
+}
+.prev{
+    transform: rotate(180deg);
+}
+.next{
+    right:0;
+}
+.prevactive, .nextactive{
+    opacity:1;
+    background-color:#454797;
+}
+
+
+/* .fade{ */
+    /* -webkit-animation-name: fade;
+    -webkit-animation-duration:1.5s;
+    animation-name:fade;
+    animation-duration:1.5s;
+} */
+
+/* @-webkit-keyframes fade{
+    from{
+        opacity:0.4;
+    }
+    to {opacity:1;
+    }
+}
+
+@keyframes fade {
+    from{
+        opacity:.4 !important;
+    }
+    to {
+        opacity:1 !important;
+    }
+} */
