@@ -5,51 +5,58 @@ import Link from 'next/link';
 import 'semantic-ui-css/semantic.min.css';
 import "@fontsource/lato";
 
+function Carauseldisplay() {
+  const gridAdjustment = {
+    numberOfColumns: '4',
+  }
 
-function Carauseldisplay(){
-    const gridAdjustment={
-        numberOfColumns:'4',
-      }
-var [slide1,slide2,slide3,slide4] = [false,true,false,false];
-const [card, setcard] = useState([
-    slide1,
-    slide2,
-    slide3,
-    slide4]);
-  useEffect(()=>{
+  const [display, setdisplay] = useState({0:false,1:false,2:true,3:false});
+  
 
-  });
-    function prevCard(){
-        for(var i=0; i<4;i++){
-          if(card[i] == true){
-            setcard(card[i]=false);
-            if(i==0){
-              setcard(card[3] ==true)
-            } 
-            if(i==3){
-              setcard(card[0] == true)
-            }
-            else{
-            setcard(card[i-1]=true);}
-          }
-        } 
-      
+    useEffect(()=>{ 
+      let removeId;
+         let addId;
+      document.getElementById("prev").addEventListener('click',(event)=>{
+         
+        for(var i=0;i<4;i++){
+         const clget = document.getElementById(i);
+          
+          if (clget != null){
+            console.log("i got here 1")
+            if(i == 0){ removeId=i;addId=3; }
+            if(i > 0){ removeId=i;addId=i-1;} 
+        }
       }
       
-       
-    
-    function nextCard(event){
-        
-    }
-
-
-
+      });
+      setdisplay((value)=>{
+        return{...value,[removeId]:false,[addId]:true}
+      });
+      // document.getElementById("next").addEventListener('click',(event)=>{
+      //   for(var i=0;i<4;++i){
+      //    let clget = document.getElementById(i);
+      //     if (clget != null && clget != 3){
+      //         console.log(clget.id);
+      //         setdisplay((pre)=>{
+      //           console.log(pre);
+      //           return{...pre,[clget.id]:false,[clget.id +1]:true}
+      //         });
+      //       }
+      //      else if(clget == 3){
+      //         setdisplay((pre)=>{
+      //           console.log(pre);
+      //           return{...pre,[clget.id]:false,[0]:true}
+      //         });
+      //     }
+      //   }
+      // });
+    });
 
 
 return <Container className={styles.slideshow_container}>
     <Grid columns={gridAdjustment.numberOfColumns} padded='vertically' stackable>
     <Grid.Row columns={gridAdjustment.numberOfColumns}>
-                {card[0] && <Grid.Column className={styles.mySlides}>
+            {display[0] &&  <Grid.Column>
                           <Card style={{marginLeft:'auto',marginRight:'auto'}} className={styles.fade}>
                               <Card.Content > 
                               <Link href='/'><Image src='/Logo/icon_plan.png' /></Link>
@@ -65,12 +72,11 @@ return <Container className={styles.slideshow_container}>
                                     <Link href='/'>
                                     <Image src='/Logo/arrow.png' />
                                     </Link>
-                                    <span className={styles.number}> 1/4 </span>
+                                    <span className={styles.number} id="0"> 1/4 </span>
                                   </Card.Content>
                             </Card>
                 </Grid.Column>}
-
-                {card[1] &&   <Grid.Column className={styles.mySlides}>
+                {display[1] &&   <Grid.Column>
                           <Card style={{marginLeft:'auto',marginRight:'auto'}} className={styles.fade}>
                               <Card.Content> 
                               <Link href='/'><Image src='/Logo/icon_fingerprint.png' /></Link>
@@ -86,11 +92,11 @@ return <Container className={styles.slideshow_container}>
                                     <Link href='/'>
                                     <Image src='/Logo/arrow.png' />
                                     </Link>
-                                    <span className={styles.number}> 2/4 </span>
+                                    <span className={styles.number} id="1"> 2/4 </span>
                                   </Card.Content>
                             </Card>
-                </Grid.Column>}
-                {card[2] &&  <Grid.Column className={styles.mySlides}>
+                </Grid.Column>}                
+                {display[2] && <Grid.Column>
                           <Card style={{marginLeft:'auto',marginRight:'auto'}} className={styles.fade}>
                               <Card.Content> 
                               <Link href='/'><Image src='/Logo/icon_shield.png' /></Link>
@@ -106,12 +112,12 @@ return <Container className={styles.slideshow_container}>
                                     <Link href='/'>
                                     <Image src='/Logo/arrow.png' />
                                     </Link>
-                                    <span className={styles.number}> 3/4 </span>
+                                    <span className={styles.number} id="2"> 3/4 </span>
                                   </Card.Content>
                             </Card>
                 </Grid.Column>}
 
-                {card[3] &&   <Grid.Column className={styles.mySlides}>
+                {display[3] &&    <Grid.Column>
                           <Card style={{marginLeft:'auto',marginRight:'auto'}} className={styles.fade}>
                               <Card.Content> 
                               <Link href='/'><Image src='/Logo/icon_manage.png' /></Link>
@@ -127,7 +133,7 @@ return <Container className={styles.slideshow_container}>
                                     <Link href='/'>
                                     <Image src='/Logo/arrow.png' />
                                     </Link>
-                                    <span className={styles.number}> 4/4 </span>
+                                    <span className={styles.number} id="3"> 4/4 </span>
                                   </Card.Content>
                             </Card>
                 </Grid.Column>}
@@ -135,8 +141,8 @@ return <Container className={styles.slideshow_container}>
     </Grid.Row>
     
     </Grid>
-    <a className={styles.prev} onClick={prevCard}><Image src='/Logo/Path 125.png' /></a>
-    <a className={styles.next} onClick={nextCard}><Image src='/Logo/Path 125.png' /></a>
+    <a className={styles.prev} id="prev"><Image src='/Logo/Path 125.png'  /></a>
+    <a className={styles.next} id="next"><Image src='/Logo/Path 125.png' /></a>
 
     </Container>
 

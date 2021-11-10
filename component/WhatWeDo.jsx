@@ -13,19 +13,31 @@ function Whatwedo(){
           numberOfColumns:'4',
         }
 
-          let footerDisAppear;
           //To change the state of the component
-          const [footer, setfooter] = useState(true);
-                
-          //To cause a custom effect on the change
-          useEffect(() =>{
-            window.addEventListener('resize',(event) =>{
-                  event.currentTarget.innerWidth <= 1100 ?footerDisAppear= false:footerDisAppear = true;
-                  setfooter(footerDisAppear);
-            });
+          const [whatwedo, setWhatWeDo] = useState(true);
+
+          function handleLoad(event){
+            let footerDisAppear;
+            const width = window.innerWidth;
+            width <= 1100 ? footerDisAppear= false : footerDisAppear = true;
+            setWhatWeDo(footerDisAppear);
+          }
+          function handleResize(event){
+            let footerDisAppear;
+            event.currentTarget.innerWidth <= 1100 ?footerDisAppear= false:footerDisAppear = true;
+            setWhatWeDo(footerDisAppear);  
+          }
+
+          //To cause an effect on the change
+          useEffect(() =>{window.addEventListener('load',handleLoad);
+           // listen for screen resize and adjust
+            window.addEventListener('resize',handleResize);
+            
       });
-          
-    return <div style={{backgroundColor:'#FAFAFA',borderRadius:'15px'}}><Container>
+    return <div style={{backgroundColor:'#FAFAFA',borderRadius:'15px'}}>
+    <Container>
+
+
     <Container fluid >
     <Grid columns={1} textAlign='center' >
                 <Grid.Row columns={1} textAlign='center' style={{paddingBottom:'0px'}}>
@@ -42,9 +54,12 @@ function Whatwedo(){
                   </Grid.Row>
     </Grid>
     </Container>
-    {footer && <Container >
+
+
+    {whatwedo && <Container >
     <Grid columns={gridAdjustment.numberOfColumns} padded='vertically' stackable>
     <Grid.Row columns={gridAdjustment.numberOfColumns}>
+
                 <Grid.Column>
                           <Card>
                               <Card.Content > 
@@ -84,6 +99,7 @@ function Whatwedo(){
                                   </Card.Content>
                             </Card>
                 </Grid.Column>
+
                 <Grid.Column>
                           <Card>
                               <Card.Content> 
@@ -127,7 +143,8 @@ function Whatwedo(){
     </Grid.Row>
     
     </Grid></Container>}
-    {!footer && <Carauseldisplay />}
+
+    {/* {whatwedo || <Carauseldisplay />} */}
     </Container>
 </div>
 }
