@@ -5,59 +5,79 @@ import Link from 'next/link';
 import 'semantic-ui-css/semantic.min.css';
 import "@fontsource/lato";
 
+function deNum(val){
+  let num;
+  if(val==0){
+    num = "zero";
+  }
+  if (val==1){
+    num ="one";
+  }
+  else if(val==2){
+    num="two";
+  }
+  else if(val==3){
+    num="three";
+  }
+  return num;
+}
+
+function deNull(){
+ for(var i=0;i<4; i++){
+  const numval = document.getElementById(i);
+   if(numval != null){
+    return numval.id;
+   }
+   else{}
+ }
+}
+
 function Carauseldisplay() {
   const gridAdjustment = {
     numberOfColumns: '4',
   }
 
-  const [display, setdisplay] = useState({0:false,1:false,2:true,3:false});
+  const [display, setdisplay] = useState({zero:false,one:false,two:false,three:true});
   
+  var values = {value1:"", value2:""}
 
     useEffect(()=>{ 
-      let removeId;
-         let addId;
-      document.getElementById("prev").addEventListener('click',(event)=>{
-         
-        for(var i=0;i<4;i++){
-         const clget = document.getElementById(i);
-          
-          if (clget != null){
-            console.log("i got here 1")
-            if(i == 0){ removeId=i;addId=3; }
-            if(i > 0){ removeId=i;addId=i-1;} 
+        const newClick = document.getElementById("prev");
+        newClick.addEventListener('click',()=>{
+          const denull = deNull();   
+          if(denull== 0){ 
+            values.value1 = 'zero';
+            values.value2 = 'three';
+            setdisplay(vali=>({...vali,[values.value1]:false,[values.value2]:true}));
         }
-      }
-      
-      });
-      setdisplay((value)=>{
-        return{...value,[removeId]:false,[addId]:true}
-      });
-      // document.getElementById("next").addEventListener('click',(event)=>{
-      //   for(var i=0;i<4;++i){
-      //    let clget = document.getElementById(i);
-      //     if (clget != null && clget != 3){
-      //         console.log(clget.id);
-      //         setdisplay((pre)=>{
-      //           console.log(pre);
-      //           return{...pre,[clget.id]:false,[clget.id +1]:true}
-      //         });
-      //       }
-      //      else if(clget == 3){
-      //         setdisplay((pre)=>{
-      //           console.log(pre);
-      //           return{...pre,[clget.id]:false,[0]:true}
-      //         });
-      //     }
-      //   }
-      // });
+        else {
+          values.value1= deNum(denull);
+          values.value2 = deNum(denull-1);
+          setdisplay(vali=>({...vali,[values.value1]:false,[values.value2]:true}));
+        }
+        }); 
+        
+      const nextClick = document.getElementById("next");
+      nextClick.addEventListener('click',()=>{
+      const denull = deNull();   
+      if(denull== 3){ 
+        values.value1 = 'three';
+        values.value2 = 'zero';
+        setdisplay(vali=>({...vali,[values.value1]:false,[values.value2]:true}));
+    }
+    else {
+      values.value1= deNum(denull);
+      values.value2 = deNum(Number(denull)+1);
+      setdisplay(vali=>({...vali,[values.value1]:false,[values.value2]:true}));
+    }
     });
-
+  },[]);
 
 return <Container className={styles.slideshow_container}>
     <Grid columns={gridAdjustment.numberOfColumns} padded='vertically' stackable>
     <Grid.Row columns={gridAdjustment.numberOfColumns}>
-            {display[0] &&  <Grid.Column>
-                          <Card style={{marginLeft:'auto',marginRight:'auto'}} className={styles.fade}>
+            {display['zero'] && <Grid.Column>
+                          <Card style={{marginLeft:'auto',marginRight:'auto'}}>
                               <Card.Content > 
                               <Link href='/'><Image src='/Logo/icon_plan.png' /></Link>
                               </Card.Content>
@@ -76,8 +96,8 @@ return <Container className={styles.slideshow_container}>
                                   </Card.Content>
                             </Card>
                 </Grid.Column>}
-                {display[1] &&   <Grid.Column>
-                          <Card style={{marginLeft:'auto',marginRight:'auto'}} className={styles.fade}>
+                {display['one'] && <Grid.Column>
+                          <Card style={{marginLeft:'auto',marginRight:'auto'}}>
                               <Card.Content> 
                               <Link href='/'><Image src='/Logo/icon_fingerprint.png' /></Link>
                               </Card.Content>
@@ -96,8 +116,8 @@ return <Container className={styles.slideshow_container}>
                                   </Card.Content>
                             </Card>
                 </Grid.Column>}                
-                {display[2] && <Grid.Column>
-                          <Card style={{marginLeft:'auto',marginRight:'auto'}} className={styles.fade}>
+                {display['two'] && <Grid.Column>
+                          <Card style={{marginLeft:'auto',marginRight:'auto'}}>
                               <Card.Content> 
                               <Link href='/'><Image src='/Logo/icon_shield.png' /></Link>
                               </Card.Content>
@@ -117,8 +137,8 @@ return <Container className={styles.slideshow_container}>
                             </Card>
                 </Grid.Column>}
 
-                {display[3] &&    <Grid.Column>
-                          <Card style={{marginLeft:'auto',marginRight:'auto'}} className={styles.fade}>
+                {display['three'] &&    <Grid.Column>
+                          <Card style={{marginLeft:'auto',marginRight:'auto'}}>
                               <Card.Content> 
                               <Link href='/'><Image src='/Logo/icon_manage.png' /></Link>
                               </Card.Content>

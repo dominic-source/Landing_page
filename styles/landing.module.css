@@ -101,6 +101,13 @@
     margin-left:15px;
 }
 
+.grid{
+    color:white;
+    font-family:lato;
+    font-size:15px;
+    font-weight: regular;
+}
+
 .gridcolor{
     color:white;
     font-family:lato;
@@ -133,6 +140,15 @@
     color:#fdf5f5 !important; 
     background-color:#f81446 !important; 
 }
+.hoverbutton2{
+    background-color:#F64C72 !important;
+    color:white !important; 
+}
+
+.hoverbutton2:hover{
+    color:#fdf5f5 !important; 
+    background-color:#f81446 !important; 
+}
 
 .icondesign:hover,.icondesign:active{
     font-size:1.2em;
@@ -152,7 +168,7 @@
     margin-left: auto;
     margin-right:auto;
     display:inline-flex;
-    padding-right:30px;
+    padding-right:35px;
    }
 
 .textcss{
@@ -268,6 +284,14 @@
        height:508px;
        width:414px;
    }
+   .socialspace{
+    height:108px;
+    width:108px;
+   }
+   .socialspace1{
+    height:108px !important;
+    width:108px !important;
+   }  
    .toptextcss{
        font-size:50px;
    }
@@ -304,16 +328,6 @@
 /* End of work area */
 
 /* Slide show */
-.fade{
-    -webkit-animation-name: fade;
-    -webkit-animation-duration:1.5s;
-    animation-name:fade;
-    animation-duration:1.5s;
-}
-
-.mySlides{
-    display:none !important;
-}
 
 .prev, .next{
     position:absolute;
@@ -327,10 +341,11 @@
 
 .prev{
     transform: rotate(180deg);
+    left:-25px;
 }
 
 .next{
-    right:0;
+    right:-15px;
 }
 
 .prevactive, .nextactive{
@@ -339,7 +354,7 @@
 }
 
 .slideshow_container{
-    max-width:1000px;
+    max-width:1100px;
     position:relative;
     margin:auto;   
    }

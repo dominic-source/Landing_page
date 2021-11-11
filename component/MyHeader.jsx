@@ -9,9 +9,10 @@ function Myheader(){
     //To change the state of the component
     const [header, setheader] = useState(true);
     var headgetstartWidth;
+    let footerDisAppear;
+
     //To cause an effect on the change
     useEffect(() =>{
-        let footerDisAppear = true;
         // Listen for a load event and get screen width, afterward, adjust the screen components.
         window.addEventListener('load',()=>{
         const width = window.innerWidth;
@@ -25,8 +26,14 @@ function Myheader(){
             });
         });
         
-  });
+  },[]);
 
+  useEffect(()=>{
+    const width = window.innerWidth;
+    width <= 1100 ?footerDisAppear= false:footerDisAppear = true;   
+    setheader(footerDisAppear);
+   
+},[]);
 
 return <Container fluid textAlign="center" className={styles.container}>
             <Header> 

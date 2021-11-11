@@ -8,21 +8,29 @@ import "@fontsource/lato";
 function Getintouchsteps(){      
       //To change the state of the component
       const [getintouchsteps, setgetintouchsteps] = useState(true);
-      let footerDisAppear=true;
+      let footerDisAppear;
       //To cause a custom effect on the change
+
       useEffect(() =>{
+        
         window.addEventListener('load',()=>{
         const width = window.innerWidth;
         width <= 1100 ?footerDisAppear= false:footerDisAppear = true;
         setgetintouchsteps(footerDisAppear);
         // Listening for a screen resize
+
         window.addEventListener('resize',(event) =>{
               event.currentTarget.innerWidth <= 1100 ?footerDisAppear= false:footerDisAppear = true;
               setgetintouchsteps(footerDisAppear);
         });
     });
-  });
+  },[]);
 
+  useEffect(()=>{
+    const width = window.innerWidth;
+    width <= 1100 ?footerDisAppear= false:footerDisAppear = true;
+    setgetintouchsteps(footerDisAppear);
+},[]);
     return <div >
 <Header as='h2' icon textAlign='center' style={{marginTop:"50px"}}>
     

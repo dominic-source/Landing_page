@@ -7,26 +7,33 @@ import "@fontsource/lato";
 
 
 function Myfooter(){
+      const width ="5";
 
       //To change the state of the component
       const [footer, setfooter] = useState(true);
+      let footerDisAppear;
 
       //To cause a custom effect on the change
       useEffect(() =>{
-            let footerDisAppear = true;
+            
             window.addEventListener('load',()=>{
             const width = window.innerWidth;
             width <= 1100 ?footerDisAppear= false:footerDisAppear = true;
             setfooter(footerDisAppear);
+
             window.addEventListener('resize',(event) =>{
                   event.currentTarget.innerWidth <= 1100 ?footerDisAppear= false:footerDisAppear = true;
                   setfooter(footerDisAppear);
             });
       });
             
-      });
+      },[]);
 
-      const width ="5"
+      useEffect(()=>{
+            const width = window.innerWidth;
+            width <= 1100 ?footerDisAppear= false:footerDisAppear = true;
+            setfooter(footerDisAppear);
+      },[]);
       
     return <div className={styles.footcontainer} id="screensize">
     
@@ -117,7 +124,7 @@ function Myfooter(){
                         </Grid.Row>    
 
             </Grid>}
-                   {footer || <h3 className={styles.gridcolor} style={{
+                   {footer || <h3 className={styles.grid} style={{
                         textAlign:'center'}}> &copy; 2020 AuthFence. All rights reserved.</h3>}
 </div>
 }

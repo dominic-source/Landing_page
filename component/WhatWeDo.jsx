@@ -15,25 +15,30 @@ function Whatwedo(){
 
           //To change the state of the component
           const [whatwedo, setWhatWeDo] = useState(true);
+          let footerDisAppear;
 
           function handleLoad(event){
-            let footerDisAppear;
             const width = window.innerWidth;
             width <= 1100 ? footerDisAppear= false : footerDisAppear = true;
             setWhatWeDo(footerDisAppear);
           }
+
           function handleResize(event){
-            let footerDisAppear;
             event.currentTarget.innerWidth <= 1100 ?footerDisAppear= false:footerDisAppear = true;
             setWhatWeDo(footerDisAppear);  
           }
 
           //To cause an effect on the change
-          useEffect(() =>{window.addEventListener('load',handleLoad);
-           // listen for screen resize and adjust
-            window.addEventListener('resize',handleResize);
+          useEffect(() =>{
             
-      });
+            window.addEventListener('load',handleLoad);
+           // listen for screen resize and adjust
+            window.addEventListener('resize',handleResize);},[]);
+            
+            useEffect(()=>{
+              handleLoad();
+            },[]);
+
     return <div style={{backgroundColor:'#FAFAFA',borderRadius:'15px'}}>
     <Container>
 
@@ -144,12 +149,8 @@ function Whatwedo(){
     
     </Grid></Container>}
 
-    {/* {whatwedo || <Carauseldisplay />} */}
+    {whatwedo || <Carauseldisplay />}
     </Container>
 </div>
 }
 export default Whatwedo;
-
-
-
-
